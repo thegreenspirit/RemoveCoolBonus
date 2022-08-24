@@ -390,7 +390,7 @@ void ActClear_Create(void *data)
             self->isNewRecord  = false;
         }
 #endif
-        self->showCoolBonus   = false;
+        self->showCoolBonus   = true;
         self->playerNamePos.x = TO_FIXED(224);
         self->playerNamePos.y = TO_FIXED(88);
         self->gotThroughPos.x = -TO_FIXED(224);
@@ -405,6 +405,11 @@ void ActClear_Create(void *data)
             self->ringBonusPos.y = TO_FIXED(136);
         else
             self->ringBonusPos.y = TO_FIXED(144);
+        if (globals->gameMode == MODE_TIMEATTACK) 
+        {
+            self->coolBonusPos.x = TO_FIXED(1064);
+            self->coolBonusPos.y = TO_FIXED(152);
+        }
         self->totalScorePos.x = -TO_FIXED(1352);
         self->totalScorePos.y = TO_FIXED(192);
 
