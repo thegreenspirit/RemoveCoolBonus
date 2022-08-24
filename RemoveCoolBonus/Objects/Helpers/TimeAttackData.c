@@ -288,23 +288,5 @@ void TimeAttackData_GetUnpackedTime_Hook(int32 time, int32 *minutes, int32 *seco
 }
 
 #if MANIA_USE_PLUS
-int32 TimeAttackData_GetScore_Hook(uint8 zoneID, uint8 act, uint8 characterID, bool32 encore, int32 rank)
-{
-    if (rank > 3 && rank)
-        return 0;
-
-    uint8 rankID = rank - 1;
-    if (TimeAttackData->loaded || characterID != TimeAttackData->characterID || zoneID != TimeAttackData->zoneID || act != TimeAttackData->act || encore != TimeAttackData->encore) {
-        TimeAttackData_ConfigureTableView(zoneID, act, characterID, encore);
-    }
-
-    int32 rowID = API.GetSortedUserDBRowID(globals->taTableID, rankID);
-    if (rowID == -1)
-        return 0;
-
-    int32 score = 0;
-    API.GetUserDBValue(globals->taTableID, rowID, DBVAR_UINT32, "score", &score);
-
-    return score;
-}
+int32 TimeAttackData_GetScore_Hook(uint8 zoneID, uint8 act, uint8 characterID, bool32 encore, int32 rank) {}
 #endif
