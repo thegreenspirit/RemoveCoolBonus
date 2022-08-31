@@ -451,6 +451,6 @@ typedef struct {
 // Object Struct
 extern ObjectPlayer *Player;
 
-void (*Player_GiveScore)(void);
+void (*Player_GiveScore)(EntityPlayer *player, int32 score);
 
 #endif //! OBJ_PLAYER_H
