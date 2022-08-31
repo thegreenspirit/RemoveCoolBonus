@@ -410,7 +410,10 @@ void ActClear_Create(void *data)
             self->coolBonusPos.x = TO_FIXED(1064);
             self->coolBonusPos.y = TO_FIXED(152);
         }
-        self->totalScorePos.x = -TO_FIXED(1064);
+        if (globals->gameMode == MODE_TIMEATTACK)
+            self->totalScorePos.x = -TO_FIXED(1352);
+        else
+            self->totalScorePos.x = -TO_FIXED(1064);
         self->totalScorePos.y = TO_FIXED(192);
 
         RSDK.SetSpriteAnimation(ActClear->aniFrames, 0, &self->hudElementsAnimator, true, 0);
