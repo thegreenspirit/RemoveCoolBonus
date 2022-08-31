@@ -3,6 +3,7 @@
 #include "Objects/Helpers/TimeAttackData.h"
 #include "Objects/Global/Music.h"
 #include "Objects/Global/Zone.h"
+#include "Objects/Global/Player.h"
 
 #if RETRO_USE_MOD_LOADER
 DLLExport bool32 LinkModLogic(EngineInfo *info, const char *id);
